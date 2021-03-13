@@ -23,7 +23,7 @@ public class ProdutoController {
 	@Autowired
 	private ProdutoService produtoService;
 
-	@GetMapping("/{id}")
+	@GetMapping("/{idProduto}")
 	@ApiOperation(value = "Consultar produto por ID")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Sucesso ao obter produto"),
 			@ApiResponse(code = 404, message = "Produto não localizado") })
