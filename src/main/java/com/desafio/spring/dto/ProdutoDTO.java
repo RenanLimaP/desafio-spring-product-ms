@@ -25,7 +25,7 @@ public class ProdutoDTO implements Serializable {
 	private String description;
 
 	@NotNull(message = "Preço inválido")
-	@Positive
+	@Positive(message = "Preço deve ser maior que 0")
 	private BigDecimal price;
 
 	public ProdutoDTO(Produto obj) {

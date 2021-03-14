@@ -43,7 +43,7 @@ public class ProdutoController {
 	@GetMapping("/search")
 	@ApiOperation(value = "Consultar produtos com filtro")
 	@ApiResponses(value = @ApiResponse(code = 200, message = "Sucesso ao obter produtos"))
-	public ResponseEntity<List<Produto>> consultarProdutosFiltro(
+	public ResponseEntity<List<Produto>> consultarProdutosComFiltro(
 			@RequestParam(required = false, name = "min_price") BigDecimal minPrice,
 			@RequestParam(required = false, name = "max_price") BigDecimal maxPrice,
 			@RequestParam(required = false, defaultValue = "") String q) {
@@ -80,7 +80,7 @@ public class ProdutoController {
 	@DeleteMapping("/{idProduto}")
 	@ApiOperation(value = "Deletar produto")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Sucesso ao deletar produto"),
-			@ApiResponse(code = 400, message = "Produto não encontrado") })
+			@ApiResponse(code = 404, message = "Produto não encontrado") })
 	public ResponseEntity<Produto> deletarProduto(@PathVariable Long idProduto) {
 		this.produtoService.delete(idProduto);
 		return ResponseEntity.ok().build();
